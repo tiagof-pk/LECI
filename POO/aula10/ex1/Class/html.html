@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    .navbar {
+        display: none;
+        /* Add other styles for your navbar, such as colors, typography, etc. */
+    }
+
+    .sticky {
+        position: fixed;
+        top: 0;
+        display: block !important;
+    }
+
+    .content {
+        /* Add styles for your content container */
+    }
+</style>
+<script>
+    var navbar = document.getElementById("navbar");
+    var content = document.getElementById("content");
+    var lastScrollTop = 0;
+
+    content.addEventListener("scroll", function() {
+        var scrollTop = content.scrollTop;
+
+        if (scrollTop > lastScrollTop) {
+            navbar.classList.remove("sticky");
+        } else {
+            navbar.classList.add("sticky");
+        }
+
+        lastScrollTop = scrollTop;
+    });
+
+</script>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="navbar" class="navbar">
+        <ul>
+            <li class="user">{{USERNAME}}</li>
+            <li onclick="toggleDiv('posts')" class="user-post">Posts</li>
+            <li onclick="toggleDiv('favorites')" class="user-favorite">Favorite</li>
+        </ul>
+    </div>
+
+    <div id="content" class="content">
+        <!-- Your page content here -->
+    </div>
+</body>
+</html>
