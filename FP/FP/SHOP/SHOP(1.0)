@@ -1,0 +1,102 @@
+# Pode correr o programa sem argumentos:
+# python3 shop
+# ou passando outros ficheiros de produtos como argumento:
+# python3 shop produtos1.txt ...
+
+def loadDataBase(fname,produtos):
+    """
+    Lê dados do ficheiro fname e atualiza/acrescenta a informação num
+    dicionário de produtos com o formato {código: (nome, secção, preço, iva), ...}.
+    """
+
+    with open("produtos.txt", "r") as file:
+        next(file)
+        for line in file:
+            p=line.strip().split(";")
+            code = p[0]
+            name = p[1]
+            section = p[2]
+            base_price = float(p[3])
+            tax = float(p[4].strip("%"))
+            produtos[code] = (name, section, base_price, tax)
+    print(produtos)
+    return produtos
+
+
+
+
+
+
+
+def registaCompra(produtos):
+    """Lê códigos de produtos (ou códigos e quantidades),
+    mostra nome, quantidade e preço final de cada um,
+    e devolve dicionário com {codigo: quantidade, ...}
+    """
+    x=input("Code?")
+    buyDict = dict()
+    nc=0
+    nc +=1
+    print(nc)
+    while x != "":
+        buy = x.split()
+        if len(buy) == 1:
+            buy.insert(1,1)
+        cd = buy[0]
+        qt =int(buy[1])
+        buyDict[nc] = [cd, qt]
+        if cd in produtos:
+            print(produtos[cd][0],qt,produtos[cd][2])
+            if cd in buyDict[nc][0]:
+                buyDict[nc][1] += buyDict[nc][1]
+            else:
+                buyDict[nc] = [cd, qt]
+        x = input("Code?")
+    print(buyDict)
+    return buyDict
+
+
+
+def fatura(produtos, compra):
+    """Imprime a fatura de uma dada compra."""
+
+
+def main(args):
+    # produtos guarda a informação da base de dados numa forma conveniente.
+    produtos = {'p1': ('Ketchup.', 'Mercearia Salgado', 1.59, 0.23)}
+    # Carregar base de dados principal
+    loadDataBase("produtos.txt", produtos)
+    # Juntar bases de dados opcionais (Não altere)
+    for arg in args:
+        loadDataBase(arg, produtos)
+    
+    
+    # Use este código para mostrar o menu e ler a opção repetidamente
+    MENU = "(C)ompra (F)atura (S)air ? "
+    repetir = True
+    while repetir:
+        # Utilizador introduz a opção com uma letra minúscula ou maiúscula
+        op = input(MENU).upper()
+        # Processar opção
+        if op == "C":
+            # Esta opção regista os produtos de uma compra
+            compra = registaCompra(produtos)
+            # Aqui pode acrescentar a compra a uma estrutura de dados adequada...
+            n_compra=dict()
+            nc=0
+            nc+=1
+            n_compra[nc]=(compra)
+        elif op == "F":
+            fatura(produtos,compra)
+
+        elif op == "S":
+            break
+
+    print("Obrigado!")
+
+
+# Não altere este código / Do not change this code
+import sys
+if __name__ == "__main__":
+    main(sys.argv[1:])
+
