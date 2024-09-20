@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=".css/style.css">
+    <script defer src=".js/script.js"></script>
+    <link rel="stylesheet" href="../AS/css/style_base.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Home Page</title>
+    <style>
+        .profile-container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-header {
+            text-align: center;
+        }
+
+        .profile-picture {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .name {
+            margin: 10px 0 0;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .title {
+            margin: 5px 0 20px;
+            font-size: 18px;
+            color: #777;
+        }
+
+        .profile-content {
+            margin-top: 20px;
+        }
+
+        .profile-content h2 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .profile-content p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+        }
+        .profile-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .profile-content ul li {
+            background: #f4f4f4;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 16px;
+            color: #333;
+        }
+        .profile-navbar {
+            position: relative;
+            top: 0; /* Mova a navbar para o topo da página */
+            right: -100px; /* Mova a navbar para a esquerda da página */
+            width: 50px; /* Faça a navbar ter a largura total da página */ 
+
+        }
+        .profile-picture-navbar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <span class="menu-btn" onclick="openNav()">&#9776;</span>
+        <div class="logo">WorkCircle</div>
+        <a href="profile.html">
+            <img class="profile" src="images/profile-picture.jpg" alt="Profile Pic">
+        </a>
+    </div>
+    <div id="mySidenav" class="sidenav">
+        <div class="logo">WorkCircle</div>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="../AS/home.html">Home</a>
+        <a href="../AS/reserve_form.html">Reserve Space</a>
+        <a href="../AS/reservations.html">Check Reservations</a>
+        <a href="../AS/calendar.html">Check Calendar</a>
+        <a href="../AS/About.html">About Us</a>
+        <div class="user-info">
+            <a href="../AS/profile.html" class="profile-sidebar"><img src="images/profile-picture.jpg" alt="Profile Pic"></a>
+            <p>John Doe</p>
+        </div>
+    </div>
+    <div class="profile-container">
+        <div class="profile-header">
+            <img src="images/profile-picture.jpg" alt="Profile Picture" class="profile-picture">
+        </div>
+        <div class="profile-content">
+            <h3>Name</h3>
+            <p>John Doe</p>
+            <h3>Username</h3>
+            <p>@JohnDoe42</p>
+            <h3>Contact</h3>
+            <p>Email: johndoe@ua.pt</p>
+            <p>Phone: (351) 937890520</p>
+            <h3>Associated :</h3>
+            <ul>
+                <li>Universidade de Aveiro</li>
+                <li>Work Circle</li>
+            </ul>
+            <h3>About Me</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante
+                dapibus diam.</p>
+        </div>
+    </div>
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "100%";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+</body>
+</html>
+

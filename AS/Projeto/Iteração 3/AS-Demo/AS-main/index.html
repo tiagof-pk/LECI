@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/script.js"></script>
+    <title>Login</title>
+</head>
+
+<body>
+    <main class="login">
+        <div class="login__container">
+            <p class="login__text">Create an account</p>
+            <span class="additional-text">Enter your email to sign up for this app</span>
+            <div class="login__image-container">
+                <img class="login__image" src="images/logo.png" alt="Imagem de Login">
+                <a href="login.html">
+                    <button class="login__button">Login</button> <!-- Adiciona o botão de login -->
+                </a>
+            </div>
+            <form class="login__form">
+                <input class="login__input" type="email" placeholder="e-mail" required>
+                <span class="login__input-border"></span>
+                <div class="button-container">
+                    <a href="signup.html">
+                        <button type="button" class="signup__button">Sign up</button>
+                    </a>
+                </div>
+                <div class="continue-with">
+                    <hr class="line">
+                    <span class="text">or continue with</span>
+                    <hr class="line">
+                </div>
+                <div class="button-google">
+                    <button class="google__button">Google</button>
+                    <img class="google__logo" src="images/google.png" alt="Google logo">
+                </div>
+                <p class="terms">By clicking continue, you agree to our <strong>Terms of Service</strong> <br>and <strong>Privacy Policy</strong></p>
+                <!-- <a class="login__reset" href="/forgot">Esqueceu a senha?</a> -->
+            </form>
+        </div>
+    </main>
+    <script>
+        document.querySelector('.login__input').addEventListener('change', function() {
+            localStorage.setItem('email', this.value);
+        });
+        </script>
+</body>
+
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=".css/style.css">
+    <script defer src=".js/calendar.js"></script>
+    <link rel="stylesheet" href="../AS/css/style_base.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Space Check</title>
+    <style>
+    .container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #4484f4;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #357ae8;
+}
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    border: 2px solid #4484f4;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.available {
+    border-color: #34c759;
+}
+
+.unavailable {
+    border-color: #ff3b30;
+}
+
+.popup i {
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: inherit;
+}
+
+.popup p {
+    font-size: 16px;
+    margin: 0;
+    color: #000000;
+}
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <span class="menu-btn" onclick="openNav()">&#9776;</span>
+        <div class="logo">WorkCircle</div>
+        <a href="profile.html">
+            <img class="profile" src="images/profile-picture.jpg" alt="Profile Pic">
+        </a>
+    </div>
+    <div id="mySidenav" class="sidenav">
+        <div class="logo">WorkCircle</div>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="../AS/home.html">Home</a>
+        <a href="../AS/reserve_form.html">Reserve Space</a>
+        <a href="../AS/reservations.html">Check Reservations</a>
+        <a href="../AS/calendar.html">Check Calendar</a>
+        <a href="../AS/About.html">About Us</a>
+        <div class="user-info">
+            <a href="../AS/profile.html" class="profile-sidebar"><img src="images/profile-picture.jpg" alt="Profile Pic"></a>
+            <p>John Doe</p>
+        </div>
+    </div>
+    <div class="container">
+        <h2>Space Availability Check</h2>
+        <form id="availability-form">
+            <div class="form-group">
+                <label for="association">Association in Charge:</label>
+                <input type="text" id="association" name="association" required>
+            </div>
+            <div class="form-group">
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label for="time">Time:</label>
+                <input type="time" id="time" name="time" required>
+            </div>
+            <div class="form-group">
+                <label for="space">Space Requesting:</label>
+                <input type="text" id="space" name="space" required>
+            </div>
+            <div class="form-group">
+                <label for="duration">Duration (in hours):</label>
+                <input type="number" id="duration" name="duration" required>
+            </div>
+            <button type="submit">Check Availability</button>
+        </form>
+        <div id="availability-result" class="popup" style="display: none;">
+            <img id="result-icon" src="" alt="Result Icon">
+            <p id="result-message"></p>
+        </div>
+        <div id="availability-available" class="popup available" style="display: none;">
+            <i class='bx bxs-check-circle'></i>
+            <p>Space is available!</p>
+        </div>
+        
+        <div id="availability-unavailable" class="popup unavailable" style="display: none;">
+            <i class='bx bx-x-circle'></i>
+            <p>Space is not available. Please choose a different time.</p>
+        </div>
+
+    </div>
+
+    <script src="js/checkSpace.js"></script>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "100%";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+</body>
+</html>
+

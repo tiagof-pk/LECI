@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../AS/css/style_base.css">
+    <title>Chat</title>
+    <style>
+        .body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 20%;
+            background-color: #4484f4;
+        }
+
+        .chat-container {
+            margin-top: 10%;
+            width: 100%;
+            max-width: 100%;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #e0e0e0;
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 20px;
+            margin: 0;
+        }
+
+        .menu-icon {
+            font-size: 24px;
+        }
+
+        .profile-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            position: relative;
+            right: 35px;
+        }
+
+        .chat-box {
+            padding: 70px 20px 20px;
+            /* Padding adjusted to account for fixed header */
+            height: 90%;
+            overflow-y: auto;
+        }
+
+        .message {
+            margin: 10px 0;
+        }
+
+        .message.sent {
+            text-align: right;
+        }
+
+        .message .text {
+            display: inline-block;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .message.sent .text {
+            background: #DCF8C6;
+        }
+
+        .message.received .text {
+            background: #eee;
+        }
+
+        .footer {
+            padding: 10px;
+            background: #f4f4f4;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .footer button {
+            padding: 10px;
+            border: none;
+            background: #0055A5;
+            color: #fff;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <span class="menu-btn" onclick="openNav()">&#9776;</span>
+        <div class="logo">WorkCircle</div>
+        <a href="profile.html">
+            <img class="profile" src="images/profile-picture.jpg" alt="Profile Pic">
+        </a>
+    </div>
+    <div id="mySidenav" class="sidenav">
+        <div class="logo">WorkCircle</div>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="../AS/home.html">Home</a>
+        <a href="../AS/reserve_form.html">Reserve Space</a>
+        <a href="../AS/checkReserves.html">Check Reservations</a>
+        <a href="../AS/checkSpace.html">Check Space</a>
+        <a href="../AS/About.html">About Us</a>
+        <div class="user-info">
+            <a href="../AS/profile.html" class="profile-sidebar"><img src="images/profile-picture.jpg"
+                    alt="Profile Pic"></a>
+            <p>Nuno Ribeiro</p>
+        </div>
+    </div>
+    <div class="chat-container">
+        <div class="chat-box" id="chatBox">
+            <div class="message received">
+                <div class="text">Hello!This is the HelpDesk service, how can I help you?</div>
+            </div>
+        </div>
+        <div class="footer">
+            <input type="text" id="messageInput" placeholder="Message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            const chatBox = document.getElementById('chatBox');
+            const messageInput = document.getElementById('messageInput');
+            const userMessage = messageInput.value.trim();
+
+            if (userMessage) {
+                const userMessageElement = document.createElement('div');
+                userMessageElement.className = 'message sent';
+                userMessageElement.innerHTML = `<div class="text">${userMessage}</div>`;
+                chatBox.appendChild(userMessageElement);
+                messageInput.value = '';
+
+                setTimeout(() => {
+                    const automatedResponse = getAutomatedResponse(userMessage);
+                    const responseMessageElement = document.createElement('div');
+                    responseMessageElement.className = 'message received';
+                    responseMessageElement.innerHTML = `<div class="text">${automatedResponse}</div>`;
+                    chatBox.appendChild(responseMessageElement);
+                    chatBox.scrollTop = chatBox.scrollHeight;
+                }, 1000);
+            }
+        }
+
+        function getAutomatedResponse(message) {
+            const responses = {
+                'hello': 'hello how are you?',
+                'I need help': 'Explain your problem so i can contact the HelpDesk team.',
+            };
+
+            return responses[message] || 'I have notified the HelpDesk team about your problem. Please wait while they come to help you out. ';
+        }
+
+
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "100%";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+</body>
+
+</html>

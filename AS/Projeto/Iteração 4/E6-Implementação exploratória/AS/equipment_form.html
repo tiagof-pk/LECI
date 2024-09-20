@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=".css/style.css">
+    <script defer src=".js/script.js"></script>
+    <link rel="stylesheet" href="../AS/css/style_base.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Equipment Form</title>
+    <style>
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="time"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            background-color: #4484f4;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #357ae8;
+        }
+        
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            border: 2px solid #000;
+            border-radius: 5px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 1000; /* Ensure it appears above other content */
+        }
+
+        .popup i {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .popup p {
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .equipment-list {
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 3px;
+            background-color: #fff;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .equipment-list h3 {
+            margin-top: 0;
+        }
+
+        .equipment-list ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .equipment-list li {
+            padding: 8px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .equipment-list li:last-child {
+            border-bottom: none;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <span class="menu-btn" onclick="openNav()">&#9776;</span>
+        <div class="logo">WorkCircle</div>
+        <a href="profile.html">
+            <img class="profile" src="images/profile-picture.jpg" alt="Profile Pic">
+        </a>
+    </div>
+    <div id="mySidenav" class="sidenav">
+        <div class="logo">WorkCircle</div>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="../AS/home.html">Home</a>
+        <a href="../AS/reserve_form.html">Reserve Space</a>
+        <a href="../AS/checkReserves.html">Check Reservations</a>
+        <a href="../AS/checkSpace.html">Check Space</a>
+        <a href="../AS/About.html">About Us</a>
+        <div class="user-info">
+            <a href="../AS/profile.html" class="profile-sidebar"><img src="images/profile-picture.jpg"
+                    alt="Profile Pic"></a>
+            <p>Nuno Ribeiro</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h2>Reserve Equipment</h2>
+        <div class="equipment-section">
+            <h3>Available Equipment</h3>
+            <div class="equipment-list">
+                <ul>
+                    <li>6 - Computers</li>
+                    <li>3 - Projector</li>
+                    <li>7 - Ethernet Cables</li>
+                    <li>4 - Switches</li>
+                    <li>3 - Routers</li>
+                </ul>
+            </div>
+        </div>
+        <form id="equipment-reservation-form">
+            <div class="form-group">
+                <label for="equipment">Equipment Requesting:</label>
+                <input type="text" placeholder="ex. 2 Computers; 1-Ethernet Cable." id="equipment" name="equipment" required>
+            </div>
+            <div class="form-group">
+                <label for="duration">Duration (in hours):</label>
+                <input type="number" placeholder="ex. 2.5" id="duration" step="0.5" name="duration" required>
+            </div>
+            <button type="submit" id="submit">Submit</button>
+
+        </form>
+    </div>
+
+    <script src="../js/equipment_form.js"></script>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "100%";
+        }
+        document.getElementById('submit').addEventListener('click', function () {
+                window.location.href = 'myReserve.html';
+            });
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+</body>
+
+</html>

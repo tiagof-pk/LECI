@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=".css/style.css">
+    <script defer src=".js/script.js"></script>
+    <link rel="stylesheet" href="../AS/css/style_base.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Home Page</title>
+    <style>
+        /* Container */
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        /* Heading */
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Form Group */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        /* Labels */
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        /* Input Fields */
+        input[type="text"],
+        input[type="datetime-local"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        /* Button */
+        button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 3px;
+            background-color: #4484f4;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #357ae8;
+        }
+
+        /* Popup */
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            border: 2px solid #000;
+            border-radius: 5px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 1000; /* Ensure it appears above other content */
+        }
+
+        .popup i {
+            display: block;
+            margin: 0 auto 10px;
+        }
+
+        .popup p {
+            font-size: 16px;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <span class="menu-btn" onclick="openNav()">&#9776;</span>
+        <div class="logo">WorkCircle</div>
+        <a href="profile.html">
+            <img class="profile" src="images/profile-picture.jpg" alt="Profile Pic">
+        </a>
+    </div>
+    <div id="mySidenav" class="sidenav">
+        <div class="logo">WorkCircle</div>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="../AS/home.html">Home</a>
+        <a href="../AS/reserve_form.html">Reserve Space</a>
+        <a href="../AS/reservations.html">Check Reservations</a>
+        <a href="../AS/checkSpace.html">Check Space</a>
+        <a href="../AS/About.html">About Us</a>
+        <div class="user-info">
+            <a href="../AS/profile.html" class="profile-sidebar"><img src="images/profile-picture.jpg"
+                    alt="Profile Pic"></a>
+            <p>John Doe</p>
+        </div>
+    </div>
+    <div class="container">
+        <h2>Reserve a Space</h2>
+        <form id="reserve-form">
+            <div class="form-group">
+                <label for="company">Whose company space to reserve:</label>
+                <select id="company" name="company" required>
+                    <option value="Empty">Choose an associated company</option>
+                    <option value="Universidade de Aveiro">Universidade de Aveiro</option>
+                    <option value="WorkCircle">WorkCircle</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="space">Which space to reserve:</label>
+                <input type="text" id="space" name="space" required>
+            </div>
+            <div class="form-group">
+                <label for="date">Date/Time:</label>
+                <input type="datetime-local" id="date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label for="duration">Duration (in hours):</label>
+                <input type="number" id="duration" name="duration" step="0.5" required>
+            </div>
+            <div class="form-group">
+                <label for="people">Number of people:</label>
+                <input type="number" id="people" name="people" required>
+            </div>
+            <button type="submit">Reserve</button>
+        </form>
+        <div id="reserve-available" class="popup" style="display: none;">
+            <i class='bx bxs-check-circle' style="font-size: 48px; color: green;"></i>
+            <p>Reservation successful!</p>
+        </div>
+        <div id="reserve-unavailable" class="popup" style="display: none;">
+            <i class='bx bx-x-circle' style="font-size: 48px; color: red;"></i>
+            <p>Reservation failed. Please try again.</p>
+        </div>
+    </div>
+    <script src="../AS/js/reserve_form.js"></script>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "100%";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+</body>
+
+</html>

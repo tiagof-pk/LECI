@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=".css/style.css">
+    <script defer src=".js/script.js"></script>
+    <link rel="stylesheet" href="../AS/css/style_base.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>About</title>
+</head>
+
+<body>
+    <div class="navbar">
+        <span class="menu-btn" onclick="openNav()">&#9776;</span>
+        <div class="logo">WorkCircle</div>
+        <a href="profile.html">
+            <img class="profile" src="images/profile-picture.jpg" alt="Profile Pic">
+        </a>
+    </div>
+    <div id="mySidenav" class="sidenav">
+        <div class="logo">WorkCircle</div>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="../AS/home.html">Home</a>
+        <a href="../AS/reserve_form.html">Reserve Space</a>
+        <a href="../AS/checkReserves.html">Check Reservations</a>
+        <a href="../AS/checkSpace.html">Check Space</a>
+        <a href="../AS/About.html">About Us</a>
+        <div class="user-info">
+            <a href="../AS/profile.html" class="profile-sidebar"><img src="images/profile-picture.jpg"
+                    alt="Profile Pic"></a>
+            <p>Nuno Ribeiro</p>
+        </div>
+    </div>
+    <div class="content-buttons">
+        <p style="color: white;">Product licensed for: </p>
+        <img style="width: 55vw; min-width: 330px;" src="./images/ua.png">
+        <br>
+        <hr>
+        <br>
+        <p style="color: white;">
+          WorkCircle is a robust coworking space management system designed to enhance usability, efficiency, and security. It offers secure user registration and login, an efficient helpdesk system for support requests, streamlined space reservation management, and real-time monitoring for administrators to oversee space utilization and availability.
+        </p>
+        <div class="content-buttons">
+        <a class="content-button" href="./home.html">Back</a>
+        </div>
+        <p style="color: white;">made by Tiago Ferreira, Marta Almeida & Martim Pinheiro</p>
+
+
+    </div>
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "100%";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+</body>
+
+</html>

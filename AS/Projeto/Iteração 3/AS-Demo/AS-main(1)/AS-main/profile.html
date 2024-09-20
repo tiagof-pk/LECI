@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=".css/style.css">
+    <script defer src=".js/script.js"></script>
+    <title>Profile</title>
+    <style>
+        body {
+            background-color: #4484f4;
+            margin: 0;
+        }
+
+        .navbar {
+            position: relative;
+            top: 0;
+            /* Mova a navbar para o topo da página */
+            left: -20px;
+            /* Mova a navbar para a esquerda da página */
+            width: 100%;
+            /* Faça a navbar ter a largura total da página */
+            background-color: #e0dcdc;
+            padding: 60px;
+            /* Reduza o padding para diminuir a altura da navbar */
+            display: flex;
+            justify-content: space-between;
+            border-top-right-radius: 30px;
+            border-top-left-radius: 30px;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            color: white;
+        }
+
+        .dropdown {
+            position: relative;
+            
+        }
+
+        .traco-image {
+            position: relative;
+            width: 45px;
+            /* Ajuste este valor para alterar a largura da imagem */
+            height: auto;
+            /* Mantém a proporção da imagem */
+            margin-right: -20px;
+            /* Ajuste a margem direita para compensar o deslocamento */
+        }
+
+       .profile-picture {
+            position: relative;
+            width: 45px;
+            /* Ajuste este valor para alterar a largura da imagem */
+            height: auto;
+            /* Mantém a proporção da imagem */
+            margin-right: -20px;
+            /* Ajuste a margem direita para compensar o deslocamento */
+        } 
+
+        .traco-image::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-bottom: 15px solid white;
+        }
+        
+
+        .wc-image {
+            position: absolute;
+            width: 150px;
+            /* Aumente este valor para aumentar a largura da imagem */
+            height: auto;
+            /* Aumente este valor para aumentar a altura da imagem */
+            top: 0px;
+            /* Ajuste este valor para mover a imagem para cima ou para baixo */
+            right: -215px;
+            /* Ajuste a posição horizontal */
+    
+        }
+        .profile-container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-header {
+            text-align: center;
+        }
+
+        .profile-picture {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .name {
+            margin: 10px 0 0;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .title {
+            margin: 5px 0 20px;
+            font-size: 18px;
+            color: #777;
+        }
+
+        .profile-content {
+            margin-top: 20px;
+        }
+
+        .profile-content h2 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .profile-content p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .profile-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .profile-content ul li {
+            background: #f4f4f4;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 16px;
+            color: #333;
+        }
+        .profile-navbar {
+            position: relative;
+            top: 0; /* Mova a navbar para o topo da página */
+            right: -100px; /* Mova a navbar para a esquerda da página */
+            width: 50px; /* Faça a navbar ter a largura total da página */ 
+
+        }
+        .profile-picture-navbar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="dropdown">
+            <a href="home.html">
+                <img class="traco-image" src="images/traco.png" alt="Traco Image">
+            </a>
+            <img class="wc-image" src="images/wc.png" alt="WC Image">
+
+        </div>
+    </div>
+    <div class="profile-container">
+        <div class="profile-header">
+            <img src="images/profile-picture.jpg" alt="Profile Picture" class="profile-picture">
+        </div>
+        <div class="profile-content">
+            <h3>Name</h3>
+            <p>John Doe</p>
+            <h3>Username</h3>
+            <p>@JohnDoe42</p>
+            <h3>Contact</h3>
+            <p>Email: johndoe@ua.pt</p>
+            <p>Phone: (351) 937890520</p> 
+            <h3>Associated :</h3>
+            <ul>
+                <li>Universidade de Aveiro</li>
+                <li>Work Circle</li>
+            </ul>
+            <h3>About Me</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante
+                dapibus diam.</p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=".css/style.css">
+    <script defer src=".js/script.js"></script>
+    <link rel="stylesheet" href="../AS/css/style_base.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Reservations</title>
+    <style>
+.reservations {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.reservation {
+    position: relative;
+    width: 80%;
+    margin: 20px 0;
+}
+
+.reservation-btn {
+    background-color: #e0dcdc;
+    color: black;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    font-weight: bold;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    padding: 20px;
+    border-radius: 5px;
+    top: 100%;
+    left: 0;
+}
+
+.reservation:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content h2 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+}
+
+.dropdown-content p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <span class="menu-btn" onclick="openNav()">&#9776;</span>
+        <div class="logo">WorkCircle</div>
+        <a href="profile.html">
+            <img class="profile" src="images/profile-picture.jpg" alt="Profile Pic">
+        </a>
+    </div>
+    <div id="mySidenav" class="sidenav">
+        <div class="logo">WorkCircle</div>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="../AS/home.html">Home</a>
+        <a href="../AS/reserve_form.html">Reserve Space</a>
+        <a href="../AS/checkReserves.html">Check Reservations</a>
+        <a href="../AS/checkSpace.html">Check Calendar</a>
+        <a href="../AS/About.html">About Us</a>
+        <div class="user-info">
+            <a href="../AS/profile.html" class="profile-sidebar"><img src="images/profile-picture.jpg" alt="Profile Pic"></a>
+            <p>John Doe</p>
+        </div>
+    </div>
+    <div class="reservations">
+        <div class="reservation">
+            <button class="reservation-btn">Makerlab: Universidade de Aveiro</button>
+            <div class="dropdown-content">
+                <h2>Reservation Details</h2>
+                <p><strong>Space:</strong> Makerlab</p>
+                <p><strong>Association:</strong> Universidade de Aveiro</p>
+                <p><strong>Date:</strong> June 15, 2024</p>
+                <p><strong>Time:</strong> 10:00 AM - 12:00 PM</p>
+            </div>
+        </div>
+        <div class="reservation">
+            <button class="reservation-btn">Conference Room: TechHub Lisbon</button>
+            <div class="dropdown-content">
+                <h2>Reservation Details</h2>
+                <p><strong>Space:</strong> Conference Room</p>
+                <p><strong>Association:</strong> TechHub Lisbon</p>
+                <p><strong>Date:</strong> June 18, 2024</p>
+                <p><strong>Time:</strong> 1:00 PM - 3:00 PM</p>
+            </div>
+        </div>
+        <div class="reservation">
+            <button class="reservation-btn">Workshop Area: Porto Innovation Center</button>
+            <div class="dropdown-content">
+                <h2>Reservation Details</h2>
+                <p><strong>Space:</strong> Workshop Area</p>
+                <p><strong>Association:</strong> Porto Innovation Center</p>
+                <p><strong>Date:</strong> June 20, 2024</p>
+                <p><strong>Time:</strong> 9:00 AM - 5:00 PM</p>
+            </div>
+        </div>
+    </div>
+    <script src="checkReserves.js"></script>
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "100%";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+
+        function toggleDropdown(button) {
+                const dropdownContent = button.nextElementSibling;
+                const allDropdowns = document.querySelectorAll('.dropdown-content');
+
+                allDropdowns.forEach(dropdown => {
+                    if (dropdown !== dropdownContent) {
+                        dropdown.style.display = 'none';
+                    }
+                });
+
+                if (dropdownContent.style.display === 'block') {
+                    dropdownContent.style.display = 'none';
+                } else {
+                    dropdownContent.style.display = 'block';
+                }
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=".css/style.css">
+    <script defer src=".js/script.js"></script>
+    <link rel="stylesheet" href="../AS/css/style_base.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>My Reserve</title>
+    <style>
+        .container {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            margin-top: 20% ;
+        }
+
+        .timer {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .controls {
+            margin-bottom: 20px;
+        }
+
+        .control-group {
+            margin-bottom: 10px;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            margin: 5px 0;
+        }
+
+        .buttons button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        #reserve-btn {
+            background-color: #4CAF50; /* Green */
+        }
+
+        #reserve-btn:hover {
+            background-color: #45a049;
+        }
+
+        #end-btn {
+            background-color: #000; /* Black */
+        }
+
+        #end-btn:hover {
+            background-color: #333;
+        }
+
+        #help-btn {
+            background-color: #f44336; /* Red */
+        }
+
+        #help-btn:hover {
+            background-color: #da190b;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <span class="menu-btn" onclick="openNav()">&#9776;</span>
+        <div class="logo">WorkCircle</div>
+        <a href="profile.html">
+            <img class="profile" src="images/profile-picture.jpg" alt="Profile Pic">
+        </a>
+    </div>
+    <div id="mySidenav" class="sidenav">
+        <div class="logo">WorkCircle</div>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="../AS/home.html">Home</a>
+        <a href="../AS/reserve_form.html">Reserve Space</a>
+        <a href="../AS/checkReserves.html">Check Reservations</a>
+        <a href="../AS/checkSpace.html">Check Space</a>
+        <a href="../AS/About.html">About Us</a>
+        <div class="user-info">
+            <a href="../AS/profile.html" class="profile-sidebar"><img src="images/profile-picture.jpg"
+                    alt="Profile Pic"></a>
+            <p>Rui Ribeiro</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="timer">
+            <span id="time">60:00</span>
+        </div>
+        <div class="controls">
+            <div class="control-group">
+                <label for="temperature">Temperature: <span id="temp-value">20</span>°C</label>
+                <input type="range" id="temperature" min="0" max="40" value="20">
+            </div>
+            <div class="control-group">
+                <label for="luminosity">Luminosity: <span id="lum-value">50</span>%</label>
+                <input type="range" id="luminosity" min="0" max="100" value="50">
+            </div>
+        </div>
+        <div class="buttons">
+            <button id="reserve-btn" class="reserve">Reserve Equipment</button>
+            <button id="end-btn" class="end">End Reserve</button>
+            <button id="help-btn" class="help">Helpdesk</button>
+        </div>
+    </div>
+
+    <script src="../AS/js/myReserve.js"></script>
+    <script>
+
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "100%";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+</body>
+
+</html>
